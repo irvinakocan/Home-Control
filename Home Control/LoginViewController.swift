@@ -120,7 +120,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc func btnLoginTapped() {
-        
+        self.navigationController?.pushViewController(HomePageViewController(), animated: true)
     }
 }
 
