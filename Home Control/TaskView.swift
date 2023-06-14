@@ -8,8 +8,14 @@
 import Foundation
 import UIKit
 
+protocol TaskViewDelegate {
+    func onRemove(_ view: TaskView)
+}
+
 class TaskView: UIView {
     let data: [String: Any]
+    
+    let delegate: TaskViewDelegate
     
     lazy var lblTitle: UILabel = {
         let label = UILabel()
@@ -59,6 +65,7 @@ class TaskView: UIView {
         let constraint = btn.heightAnchor.constraint(equalToConstant: 30)
         constraint.isActive = true
         constraint.priority = UILayoutPriority(rawValue: 999)
+        btn.addTarget(self, action: #selector(btnRemoveTapped), for: .touchUpInside)
         return btn
     }()
     
@@ -74,8 +81,9 @@ class TaskView: UIView {
         return stack
     }()
     
-    init(data: [String: Any]) {
+    init(delegate: TaskViewDelegate, data: [String: Any]) {
         self.data = data
+        self.delegate = delegate
         super.init(frame: .zero)
         backgroundColor = .lightGray
         
@@ -102,5 +110,9 @@ class TaskView: UIView {
         else {
             btnShow.setTitle("Hide", for: .normal)
         }
+    }
+    
+    @objc func btnRemoveTapped() {
+        delegate.onRemove(self)
     }
 }

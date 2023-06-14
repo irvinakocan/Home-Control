@@ -34,7 +34,7 @@ let room: [[String: Any]] = [
     ]
 ]
 
-class HomePageViewController: UIViewController {
+class HomePageViewController: UIViewController, TaskViewDelegate {
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -81,7 +81,14 @@ class HomePageViewController: UIViewController {
     }
     
     @objc func addMoreView() {
-        let view = TaskView(data: room[Int.random(in: 0..<room.count)])
+        let view = TaskView(delegate: self,data: room[Int.random(in: 0..<room.count)])
         taskStackView.addArrangedSubview(view)
+    }
+    
+    func onRemove(_ view: TaskView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.taskStackView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        })
     }
 }
