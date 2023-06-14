@@ -21,6 +21,7 @@ class TaskView: UIView {
         let button = UIButton()
         button.setTitle("Hide", for: .normal)
         button.setTitleColor(.blue, for: .normal)
+        button.addTarget(self, action: #selector(btnShowTapped), for: .touchUpInside)
         return button
     }()
     
@@ -88,5 +89,18 @@ class TaskView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func btnShowTapped() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.imageView.isHidden = !self.imageView.isHidden
+        })
+        
+        if self.imageView.isHidden {
+            btnShow.setTitle("Show", for: .normal)
+        }
+        else {
+            btnShow.setTitle("Hide", for: .normal)
+        }
     }
 }
