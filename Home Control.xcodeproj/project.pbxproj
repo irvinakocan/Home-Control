@@ -14,6 +14,7 @@
 		24A6D2E62A38F5E900231363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24A6D2E52A38F5E900231363 /* Assets.xcassets */; };
 		24A6D2E92A38F5E900231363 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24A6D2E72A38F5E900231363 /* LaunchScreen.storyboard */; };
 		24A6D2F12A390BCC00231363 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6D2F02A390BCC00231363 /* HomePageViewController.swift */; };
+		24A6D2F32A391D2300231363 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6D2F22A391D2300231363 /* TaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		24A6D2E82A38F5E900231363 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24A6D2EA2A38F5E900231363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24A6D2F02A390BCC00231363 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		24A6D2F22A391D2300231363 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				24A6D2DC2A38F5E300231363 /* AppDelegate.swift */,
 				24A6D2DE2A38F5E300231363 /* SceneDelegate.swift */,
 				24A6D2E02A38F5E300231363 /* LoginViewController.swift */,
+				24A6D2F22A391D2300231363 /* TaskView.swift */,
 				24A6D2F02A390BCC00231363 /* HomePageViewController.swift */,
 				24A6D2E22A38F5E300231363 /* Main.storyboard */,
 				24A6D2E52A38F5E900231363 /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 				24A6D2F12A390BCC00231363 /* HomePageViewController.swift in Sources */,
 				24A6D2E12A38F5E300231363 /* LoginViewController.swift in Sources */,
 				24A6D2DD2A38F5E300231363 /* AppDelegate.swift in Sources */,
+				24A6D2F32A391D2300231363 /* TaskView.swift in Sources */,
 				24A6D2DF2A38F5E300231363 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
