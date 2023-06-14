@@ -35,11 +35,53 @@ let room: [[String: Any]] = [
 ]
 
 class HomePageViewController: UIViewController {
+    
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    lazy var taskStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 20.0
+        stack.alignment = .fill
+        stack.distribution = .fill
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .purple
+        self.title = "Home Control"
+        view.backgroundColor = .white
 
+        addRightButton()
+        setupUI()
+    }
+    
+    func setupUI() {
+        view.addSubview(scrollView)
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
+        scrollView.addSubview(taskStackView)
+        taskStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        taskStackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        taskStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        taskStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        taskStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+    }
+    
+    func addRightButton() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(addMoreView))
+    }
+    
+    @objc func addMoreView() {
+        let view = TaskView(data: room[Int.random(in: 0..<room.count)])
+        taskStackView.addArrangedSubview(view)
     }
 }
